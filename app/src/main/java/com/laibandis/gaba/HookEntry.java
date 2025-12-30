@@ -5,8 +5,7 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage;
 
 public class HookEntry implements IXposedHookLoadPackage {
     @Override
-    public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {
-        if (!lpparam.packageName.equals("sinet.startup.inDriver")) return;
-        // hooks here
+    public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) {
+        // hooks go here
     }
 }

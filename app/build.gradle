@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.library'
+    id 'com.android.application'
 }
 
 android {
@@ -7,16 +7,17 @@ android {
     compileSdk 34
 
     defaultConfig {
+        applicationId "com.laibandis.gaba"
         minSdk 26
         targetSdk 34
         versionCode 1
         versionName "1.0"
-        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
         release {
             minifyEnabled false
+            signingConfig signingConfigs.debug
         }
     }
 
