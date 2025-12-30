@@ -1,30 +1,51 @@
 package com.laibandis.gaba;
 
+import android.app.Application;
+import android.util.Log;
+
 import de.robv.android.xposed.IXposedHookLoadPackage;
+import de.robv.android.xposed.XC_MethodHook;
+import de.robv.android.xposed.XposedBridge;
+import de.robv.android.xposed.XposedHelpers;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
 
 public class HookEntry implements IXposedHookLoadPackage {
 
     @Override
-    public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {
+    public void handleLoadPackage(final XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {
 
         if (!lpparam.packageName.equals("sinet.startup.inDriver")) return;
 
-        android.util.Log.e("ALPHARD", "LSPosed MODULE LOADED");
+        XposedBridge.log("🔥 Alphard module loaded into " + lpparam.packageName);
+
+        // ───── FCM HOOK ─────
+        XposedHelpers.findAndHookMethod(
+                "com.google.firebase.messaging.FirebaseMessagingService",
+                lpparam.classLoader,
+                "onMessageReceived",
+                "com.google.firebase.messaging.RemoteMessage",
+                new XC_MethodHook() {
+                    @Override
+                    protected void beforeHookedMethod(MethodHookParam param) {
+                        Object msg = param.args[0];
+                        XposedBridge.log("📨 FCM PUSH => " + msg.toString());
+                    }
+                }
+        );
+
+        // ───── OKHTTP WS HOOK ─────
+        XposedHelpers.findAndHookMethod(
+                "okhttp3.internal.ws.RealWebSocket",
+                lpparam.classLoader,
+                "onReadMessage",
+                String.class,
+                new XC_MethodHook() {
+                    @Override
+                    protected void afterHookedMethod(MethodHookParam param) {
+                        String frame = (String) param.args[0];
+                        XposedBridge.log("🌐 WS FRAME => " + frame);
+                    }
+                }
+        );
     }
 }
-
-        try {
-            Class<?> ws = Class.forName("okhttp3.internal.ws.RealWebSocket", false, lpparam.classLoader);
-
-            de.robv.android.xposed.XposedHelpers.findAndHookMethod(ws, "onReadMessage",
-                    String.class,
-                    new de.robv.android.xposed.XC_MethodHook() {
-                        protected void afterHookedMethod(MethodHookParam param) {
-                            String msg = (String) param.args[0];
-                            if (msg.contains("order") || msg.contains("queue") || msg.contains("trip")) {
-                                android.util.Log.e("ALPHARD-WS", msg);
-                            }
-                        }
-                    });
-        } catch (Throwable t) {}
