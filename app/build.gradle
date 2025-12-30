@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.library'
+    id 'com.android.application'
 }
 
 android {
@@ -7,8 +7,11 @@ android {
     compileSdk 34
 
     defaultConfig {
+        applicationId "com.laibandis.gaba"
         minSdk 23
         targetSdk 34
+        versionCode 1
+        versionName "1.0"
     }
 
     buildTypes {
@@ -16,9 +19,12 @@ android {
             minifyEnabled false
         }
     }
+
+    packagingOptions {
+        resources.excludes += ["META-INF/*.kotlin_module"]
+    }
 }
 
 dependencies {
     compileOnly files('libs/api-82.jar')
-    compileOnly "com.squareup.okio:okio:2.10.0"
 }
