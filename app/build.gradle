@@ -1,14 +1,15 @@
 plugins {
-    id 'com.android.application'
+    id "com.android.application"
 }
 
 android {
-    compileSdkVersion 33
+    namespace "com.laibandis.gaba"
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.laibandis.gaba"
-        minSdkVersion 26
-        targetSdkVersion 33
+        minSdk 26
+        targetSdk 33
         versionCode 1
         versionName "1.0"
     }
@@ -17,12 +18,9 @@ android {
         release {
             minifyEnabled false
         }
-        debug {
-            minifyEnabled false
-        }
     }
 }
 
 dependencies {
-    compileOnly files('libs/api-82.jar')
+    compileOnly files("libs/api-82.jar")
 }
