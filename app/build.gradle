@@ -1,28 +1,22 @@
 plugins {
-  id 'com.android.library'
+    id 'com.android.library'
 }
 
 android {
-  namespace "com.laibandis.gaba"
-  compileSdk 34
+    namespace "com.laibandis.gaba"
+    compileSdk 34
 
-  defaultConfig {
-    minSdk 26
-    targetSdk 34
-  }
-
-  buildTypes {
-    release {
-      minifyEnabled false
+    defaultConfig {
+        minSdk 26
+        targetSdk 34
     }
-  }
 
-  compileOptions {
-    sourceCompatibility JavaVersion.VERSION_17
-    targetCompatibility JavaVersion.VERSION_17
-  }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
 }
 
 dependencies {
-  compileOnly files("libs/api-82.jar")
+    compileOnly files("libs/api-82.jar")
 }
