@@ -1,0 +1,2 @@
+rootProject.name = "Alphard-module"
+include ':app'

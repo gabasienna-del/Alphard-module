@@ -1,0 +1,3 @@
+<manifest package="com.laibandis.gaba.policy">
+    <application android:label="Alphard Policy"/>
+</manifest>
