@@ -1,0 +1,6 @@
+id=alphard.policy
+name=Alphard Priority Policy
+version=1.0
+versionCode=1
+author=Gabasienna
+description=Raises inDriver network, CPU and alarm priority above system standby
