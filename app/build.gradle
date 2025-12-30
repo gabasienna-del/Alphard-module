@@ -1,32 +1,24 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
 }
 
 android {
-    namespace "com.laibandis.gaba"
+    namespace 'com.laibandis.gaba'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.laibandis.gaba"
-        minSdk 26
+        minSdk 23
         targetSdk 34
-        versionCode 1
-        versionName "1.0"
     }
 
     buildTypes {
         release {
             minifyEnabled false
-            signingConfig signingConfigs.debug
         }
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
     }
 }
 
 dependencies {
-    compileOnly files("libs/api-82.jar")
+    compileOnly files('libs/api-82.jar')
+    compileOnly "com.squareup.okio:okio:2.10.0"
 }
