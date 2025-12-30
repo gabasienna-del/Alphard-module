@@ -1,31 +1,31 @@
 plugins {
-    id 'com.android.application'
+  id 'com.android.application' version '8.3.2'
 }
 
 android {
-    namespace "com.laibandis.gaba"
-    compileSdk 33
+  namespace "com.laibandis.gaba"
+  compileSdk 34
 
-    defaultConfig {
-        applicationId "com.laibandis.gaba"
-        minSdk 26
-        targetSdk 33
-        versionCode 1
-        versionName "1.0"
-    }
+  defaultConfig {
+    applicationId "com.laibandis.gaba"
+    minSdk 26
+    targetSdk 34
+    versionCode 1
+    versionName "1.0"
+  }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-        }
+  buildTypes {
+    release {
+      minifyEnabled false
     }
+  }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
-    }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_17
+    targetCompatibility JavaVersion.VERSION_17
+  }
 }
 
 dependencies {
-    compileOnly files("libs/api-82.jar")
+  compileOnly files("libs/api-82.jar")
 }
