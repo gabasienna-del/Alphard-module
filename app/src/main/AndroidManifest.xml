@@ -3,6 +3,20 @@
 
     <application
         android:label="Alphard LSPosed Module"
-        android:hasCode="true"/>
+        android:hasCode="true">
+
+        <meta-data
+            android:name="xposedmodule"
+            android:value="true"/>
+
+        <meta-data
+            android:name="xposeddescription"
+            android:value="Native LSPosed driver hook module"/>
+
+        <meta-data
+            android:name="xposedminversion"
+            android:value="93"/>
+
+    </application>
 
 </manifest>
