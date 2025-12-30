@@ -3,16 +3,6 @@ plugins {
 }
 
 android {
-
-  signingConfigs {
-    release {
-      storeFile file("../alphard.keystore")
-      storePassword ""
-      keyAlias "alphard"
-      keyPassword ""
-    }
-  }
-
   namespace "com.laibandis.gaba"
   compileSdk 34
 
@@ -27,7 +17,7 @@ android {
   buildTypes {
     release {
       minifyEnabled false
-      signingConfig signingConfigs.release
+      signingConfig signingConfigs.debug
     }
   }
 
