@@ -1,18 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.alphard.module">
+    package="com.laibandis.gaba">
 
-    <application android:label="Alphard Module" android:hasCode="true"/>
-
-    <meta-data
-        android:name="xposedmodule"
-        android:value="true"/>
-
-    <meta-data
-        android:name="xposeddescription"
-        android:value="Alphard LSPosed Module"/>
-
-    <meta-data
-        android:name="xposedminversion"
-        android:value="93"/>
+    <application android:label="Alphard LSPosed Module"/>
 
 </manifest>

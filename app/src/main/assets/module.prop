@@ -1,6 +1,6 @@
-id=alphard.policy
-name=Alphard Priority Policy
+id=alphard
+name=Alphard LSPosed Module
 version=1.0
 versionCode=1
-author=Gabasienna
-description=Raises inDriver network, CPU and alarm priority above system standby
+author=Gaba
+description=Native LSPosed driver hook module
