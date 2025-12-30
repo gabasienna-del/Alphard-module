@@ -1,14 +1,23 @@
 plugins {
-    id 'com.android.library'
+    id 'com.android.application'
 }
 
 android {
-    namespace "com.laibandis.gaba"
+    namespace "com.alphard.module"
     compileSdk 34
 
     defaultConfig {
+        applicationId "com.alphard.module"
         minSdk 26
         targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
     }
 
     compileOptions {
